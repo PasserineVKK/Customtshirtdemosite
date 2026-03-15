@@ -1,5 +1,4 @@
-import * as React from "react";
-import { Truck } from 'lucide-react'
+
 
 interface SimpleFeatureCard {
     icon: any,

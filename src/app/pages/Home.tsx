@@ -6,6 +6,8 @@ import { ProductCard } from "../components/ProductCard";
 import { motion } from "motion/react";
 import { SimpleFeatureCard } from "../components/ui/feature-card";
 import { StartsFiller } from "../components/ui/starts-rating";
+import { GuidePoint } from "../components/ui/guide-point";
+import { SectionTitle } from "../components/ui/page-section-title";
 
 
 export const Home = () => {
@@ -127,12 +129,8 @@ export const Home = () => {
       {/* Featured Products */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Sản phẩm nổi bật</h2>
-            <p className="text-gray-600">
-              Những mẫu áo được yêu thích nhất tại TeeForge
-            </p>
-          </div>
+          <SectionTitle title='Sản phẩm nổi bật' subTitle="Mẫu áo được yêu thích nhất mùa hè này"></SectionTitle>
+          
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredProducts.map((product) => (
@@ -155,43 +153,19 @@ export const Home = () => {
       {/* How It Works */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Cách thức hoạt động</h2>
-            <p className="text-gray-600">
-              Chỉ với 3 bước đơn giản
-            </p>
-          </div>
+          <SectionTitle title='Cách thức hoạt động' subTitle="Chỉ với ba bước đơn giản"></SectionTitle>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-orange-600 text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6">
-                1
-              </div>
-              <h3 className="font-semibold text-xl mb-3">Chọn hoặc thiết kế</h3>
-              <p className="text-gray-600">
-                Chọn từ bộ sưu tập có sẵn hoặc tự thiết kế áo riêng với công cụ custom
-              </p>
-            </div>
+        
+            <GuidePoint stepNum={1} stepTitle = {'Chọn hoặc thiết kế'} 
+            stepDescription={'Chọn từ bộ sưu tập có sẵn hoặc tự thiết kế áo riêng với công cụ custom'} />
 
-            <div className="text-center">
-              <div className="w-20 h-20 bg-orange-600 text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6">
-                2
-              </div>
-              <h3 className="font-semibold text-xl mb-3">Đặt hàng</h3>
-              <p className="text-gray-600">
-                Chọn size, số lượng và hoàn tất đơn hàng với phương thức thanh toán tiện lợi
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-20 h-20 bg-orange-600 text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6">
-                3
-              </div>
-              <h3 className="font-semibold text-xl mb-3">Nhận hàng</h3>
-              <p className="text-gray-600">
-                Chúng tôi sẽ in và giao hàng tận nơi trong 2-3 ngày làm việc
-              </p>
-            </div>
+            <GuidePoint stepNum={2} stepTitle={'Đặt hàng'}
+            stepDescription={'Chọn size, số lượng và hoàn tất đơn hàng với phương thức thanh toán tiện lợi'}/>
+            
+            <GuidePoint stepNum={3} stepTitle={'Nhận hàng'}
+            stepDescription={'Chúng tôi sẽ in và giao hàng tận nơi trong 2-3 ngày làm việc'}/>
+           
           </div>
         </div>
       </section>
@@ -199,12 +173,7 @@ export const Home = () => {
       {/* Testimonials */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Khách hàng nói gì</h2>
-            <p className="text-gray-600">
-              Những đánh giá từ khách hàng đã mua sắm tại TeeForge
-            </p>
-          </div>
+         <SectionTitle title={'Khách hàng nói gì?'} subTitle={' Những đánh giá từ khách hàng đã mua sắm tại TeeForge'}></SectionTitle>
 
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
