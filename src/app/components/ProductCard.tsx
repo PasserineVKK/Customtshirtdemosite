@@ -3,6 +3,7 @@ import { Heart, Eye, Star } from "lucide-react";
 import { Product } from "../data/products";
 import { useWishlist } from "../context/WishlistContext";
 import { motion } from "motion/react";
+import { StartsFiller } from "./ui/starts-rating";
 
 interface ProductCardProps {
   product: Product;
@@ -78,16 +79,9 @@ export const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
           {/* Info */}
           <div className="p-4">
             <div className="flex items-center space-x-1 mb-2">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className={`w-4 h-4 ${
-                    i < Math.floor(product.rating)
-                      ? "fill-orange-400 text-orange-400"
-                      : "text-gray-300"
-                  }`}
-                />
-              ))}
+          
+                <StartsFiller key = {product.id} rating = {Math.floor(product.rating+0.4)} startSize={5}/>
+             
               <span className="text-xs text-gray-500 ml-2">({product.reviews})</span>
             </div>
 

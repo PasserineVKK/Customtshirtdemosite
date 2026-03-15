@@ -1,9 +1,12 @@
 import { Link } from "react-router";
-import { ArrowRight, Palette, Truck, Shield, Star } from "lucide-react";
+import { ArrowRight, Palette, Truck, Shield, Star, ScanFace } from "lucide-react";
 import { products } from "../data/products";
 import { testimonials } from "../data/testimonials";
 import { ProductCard } from "../components/ProductCard";
 import { motion } from "motion/react";
+import { SimpleFeatureCard } from "../components/ui/feature-card";
+import { StartsFiller } from "../components/ui/starts-rating";
+
 
 export const Home = () => {
   const featuredProducts = products.slice(0, 4);
@@ -91,13 +94,8 @@ export const Home = () => {
               viewport={{ once: true }}
               className="bg-white p-8 rounded-lg shadow-sm text-center"
             >
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Palette className="w-8 h-8 text-orange-600" />
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Thiết kế tự do</h3>
-              <p className="text-gray-600 text-sm">
-                Công cụ thiết kế dễ sử dụng, sáng tạo không giới hạn
-              </p>
+              <SimpleFeatureCard icon = {Palette} title={'Thiết kế tự do'} description={' Công cụ thiết kế dễ sử dụng, sáng tạo không giới hạn'}/>
+
             </motion.div>
 
             <motion.div
@@ -107,13 +105,8 @@ export const Home = () => {
               viewport={{ once: true }}
               className="bg-white p-8 rounded-lg shadow-sm text-center"
             >
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-8 h-8 text-orange-600" />
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Chất lượng cao</h3>
-              <p className="text-gray-600 text-sm">
-                Vải cotton premium, form chuẩn, bền màu
-              </p>
+              <SimpleFeatureCard icon = {Shield} title={'Chất lượng cao'} description={'Vải cotton premium, form chuẩn, bền màu'}/>
+
             </motion.div>
 
             <motion.div
@@ -123,13 +116,9 @@ export const Home = () => {
               viewport={{ once: true }}
               className="bg-white p-8 rounded-lg shadow-sm text-center"
             >
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Truck className="w-8 h-8 text-orange-600" />
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Giao hàng nhanh</h3>
-              <p className="text-gray-600 text-sm">
-                Miễn phí ship đơn từ 500k, giao hàng 2-3 ngày
-              </p>
+              <SimpleFeatureCard icon = {Truck} title={'Giao hàng nhanh'} description={'Miễn phí ship đơn từ 500k, giao hàng 2-3 ngày'}/>
+              
+            
             </motion.div>
           </div>
         </div>
@@ -217,14 +206,11 @@ export const Home = () => {
             </p>
           </div>
 
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {testimonials.map((testimonial) => (
               <div key={testimonial.id} className="bg-white p-6 rounded-lg shadow-sm">
-                <div className="flex items-center space-x-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-orange-400 text-orange-400" />
-                  ))}
-                </div>
+                <StartsFiller rating = {testimonial.rating} startSize={4}/>
                 
                 <p className="text-gray-700 text-sm mb-4">"{testimonial.content}"</p>
                 

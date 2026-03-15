@@ -9,6 +9,7 @@ import { addToRecentlyViewed, getRecentlyViewed } from "../utils/localStorage";
 import { ProductCard } from "../components/ProductCard";
 import { QuantitySelector } from "../components/QuantitySelector";
 import { toast } from "sonner";
+import { StartsFiller } from "../components/ui/starts-rating";
 
 export const ProductDetail = () => {
   const { slug } = useParams();
@@ -150,16 +151,9 @@ export const ProductDetail = () => {
           {/* Product Info */}
           <div>
             <div className="flex items-center space-x-1 mb-3">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className={`w-5 h-5 ${
-                    i < Math.floor(product.rating)
-                      ? "fill-orange-400 text-orange-400"
-                      : "text-gray-300"
-                  }`}
-                />
-              ))}
+            
+                <StartsFiller rating = {Math.floor(product.rating+0.4)} startSize={10}/>
+              
               <span className="text-sm text-gray-600 ml-2">
                 {product.rating} ({product.reviews} đánh giá)
               </span>
