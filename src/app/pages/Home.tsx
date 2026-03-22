@@ -8,6 +8,7 @@ import { SimpleFeatureCard } from "../components/ui/feature-card";
 import { StartsFiller } from "../components/ui/starts-rating";
 import { GuidePoint } from "../components/ui/guide-point";
 import { SectionTitle } from "../components/ui/page-section-title";
+import { HomeSection } from "../components/ui/home-section";
 
 
 export const Home = () => {
@@ -86,9 +87,10 @@ export const Home = () => {
       </section>
 
       {/* Features */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+
+      <HomeSection py={16} backgroundColor="bg-gray-50">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -123,15 +125,17 @@ export const Home = () => {
             
             </motion.div>
           </div>
-        </div>
-      </section>
+      </HomeSection>
 
       {/* Featured Products */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle title='Sản phẩm nổi bật' subTitle="Mẫu áo được yêu thích nhất mùa hè này"></SectionTitle>
-          
+         
+        </div>
+      </section>
 
+      <HomeSection py={20} >
+           <SectionTitle title='Sản phẩm nổi bật' subTitle="Mẫu áo được yêu thích nhất mùa hè này"></SectionTitle>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
@@ -147,13 +151,11 @@ export const Home = () => {
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
-        </div>
-      </section>
+      </HomeSection>
 
       {/* How It Works */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle title='Cách thức hoạt động' subTitle="Chỉ với ba bước đơn giản"></SectionTitle>
+      <HomeSection py={20} backgroundColor="bg-gray-50">
+        <SectionTitle title='Cách thức hoạt động' subTitle="Chỉ với ba bước đơn giản"></SectionTitle>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
         
@@ -167,15 +169,11 @@ export const Home = () => {
             stepDescription={'Chúng tôi sẽ in và giao hàng tận nơi trong 2-3 ngày làm việc'}/>
            
           </div>
-        </div>
-      </section>
+      </HomeSection>
 
       {/* Testimonials */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <HomeSection py={20}>
          <SectionTitle title={'Khách hàng nói gì?'} subTitle={' Những đánh giá từ khách hàng đã mua sắm tại TeeForge'}></SectionTitle>
-
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {testimonials.map((testimonial) => (
               <div key={testimonial.id} className="bg-white p-6 rounded-lg shadow-sm">
@@ -197,12 +195,10 @@ export const Home = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
+      </HomeSection>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <HomeSection py={20} backgroundColor="bg-gradient-to-r from-orange-600 to-red-600 text-white" >
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Sẵn sàng tạo dựng phong cách riêng?
           </h2>
@@ -216,8 +212,7 @@ export const Home = () => {
             <span>Bắt đầu thiết kế</span>
             <ArrowRight className="w-6 h-6" />
           </Link>
-        </div>
-      </section>
+      </HomeSection>
     </div>
   );
 };
