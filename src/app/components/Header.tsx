@@ -1,14 +1,31 @@
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import { ShoppingCart, Heart, Search, Menu, User } from "lucide-react";
 import { useCart } from "../context/CartContext";
 import { useWishlist } from "../context/WishlistContext";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const Header = () => {
   const { cartCount } = useCart();
   const { wishlist } = useWishlist();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+  const location = useLocation();
+  useEffect(()=>{
+    const nav = navRef.current;
+    if (!nav) return;
 
+    const links = nav.querySelectorAll('a');
+    links.forEach((link)=>{
+        if (location.pathname === link.getAttribute('href')){
+          link.classList.add('text-orange-600', 'font-bold')
+        } else {
+          link.classList.remove('text-orange-600', 'font-bold')
+        }
+    })
+  },[
+    location.pathname
+  ])
+  
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,17 +39,18 @@ export const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/products" className="hover:text-orange-600 transition-colors">
+          <nav ref={navRef} className="hidden md:flex items-center space-x-8">
+            <Link to="/products" className="hover:text-orange-600 transition-colors"
+           >
               Sản phẩm
             </Link>
-            <Link to="/designer" className="hover:text-orange-600 transition-colors">
+            <Link to="/designer" className="hover:text-orange-600 transition-colors focus:text-orange-600">
               Thiết kế
             </Link>
-            <Link to="/lookbook" className="hover:text-orange-600 transition-colors">
+            <Link to="/lookbook" className="hover:text-orange-600 transition-colors focus:text-orange-600">
               Lookbook
             </Link>
-            <Link to="/contact" className="hover:text-orange-600 transition-colors">
+            <Link to="/contact" className="hover:text-orange-600 transition-colors focus:text-orange-600">
               Liên hệ
             </Link>
           </nav>

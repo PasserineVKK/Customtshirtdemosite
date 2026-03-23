@@ -89,7 +89,8 @@ export const Home = () => {
       {/* Features */}
       
 
-      <HomeSection py={16} backgroundColor="bg-gray-50">
+      <HomeSection py={20} backgroundColor="bg-gray-50">
+        <SectionTitle title="TeeForge có gì?" subTitle="Ba lý do vì sao bạn nên chọn TeeForge"/>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -126,13 +127,13 @@ export const Home = () => {
             </motion.div>
           </div>
       </HomeSection>
-
-      {/* Featured Products */}
+{/* 
+      Featured Products
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
          
         </div>
-      </section>
+      </section> */}
 
       <HomeSection py={20} >
            <SectionTitle title='Sản phẩm nổi bật' subTitle="Mẫu áo được yêu thích nhất mùa hè này"></SectionTitle>
